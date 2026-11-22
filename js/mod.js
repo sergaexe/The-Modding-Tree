@@ -1,25 +1,27 @@
 let modInfo = {
-	name: "The ??? Tree",
-	author: "nobody",
-	pointsName: "points",
+	id: "case-clicker-tree", // ключ сохранения в localStorage
+	name: "Кейс-кликер",
+	author: "sergaexe",
+	pointsName: "монет",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (25), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "Первые кейсы",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v0.1</h3><br>
+		- Открытие кейсов, 5 редкостей предметов.<br>
+		- Продажа предметов, 5 улучшений.<br>
+		- Хоткеи: O - открыть кейс, S - продать всё.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -41,7 +43,7 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(1)
+	let gain = new Decimal(0.5) // небольшой пассивный доход, чтобы игрок не застрял без монет
 	return gain
 }
 
